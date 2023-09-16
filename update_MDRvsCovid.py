@@ -255,47 +255,6 @@ for edge in ['right','bottom','top', 'left']:
 plt.xlim(-150, -50)
 plt.ylim(25, 50)
 plt.show()
-'''
-
-#flouroquinolone percent resistant rate
-read_fluoroquinolone=pd.read_csv("Fluoroquinolone_MRSA.csv")                          # reading the file
-#print(read_ecoli_file)
- 
-#acinetobacter_df=read_acinetobacter[["State", "aPercent Resistant"]]                        #select state and percent resistant rate column
-#print(acinetobacter_df)
-fluoroquinolone_df=read_fluoroquinolone[["State", "fPercent Resistant"]]                        #select state and percent resistant rate column
-#print(percent_rate)
-shape = pd.merge(
-    left=shape,
-    right= fluoroquinolone_df,
-    left_on='NAME',
-    right_on='State',
-    how='left'
-    )   # this create a left join
-
-ax = shape.boundary.plot()
-shape.plot(ax=ax, column='fPercent Resistant')
-#plt.show()
-
-ax = shape.boundary.plot()
-shape.plot(ax=ax, column='fPercent Resistant')
-#plt.show()
-ax = shape.boundary.plot(edgecolor='black',linewidth=0.2, figsize=(10, 5))  ### edgewith=boder aroun the state, linewidth= how big is the Border
-shape.plot(ax=ax, column='Percent Resistant',legend=True,cmap='BuPu')
-# remove the border
-ax.set_title('2018 Fluoroquinolone percent Resistant Rate', size=14, weight='bold')
-ax.get_xaxis().set_visible(False)
-ax.get_yaxis().set_visible(False)
-for edge in ['right','bottom','top', 'left']:
-    ax.spines[edge].set_visible(False)
-    
-plt.xlim(-150, -50)
-plt.ylim(25, 50)
-plt.show()
-
-
-
-'''
 
 
 
